@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <title>Bernie Match Game</title>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bernie Match Game</h1>
+        <div id="new-game-container">
+            <form id="new-user-form">
+                <b>What is your name?</b>
+                <input type="text" id="new-user-name">
+                <input type="submit">
+            </form>
+        </div><br>
+        <div id="cards-content">
+            <ul id="cards-container">
+             
+            </ul>
+            <div id="card-show">
+
+            </div>
+        </div>
+    </div>
+    <script src="src/components/cards.js"></script>
+    <script src="src/components/app.js"></script>
+    <script src="src/adapters/CardsAdapter.js"></script>
+    <script src="src/index.js"></script>
+</body>
+</html>
