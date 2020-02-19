@@ -1,0 +1,14 @@
+class UsersAdapter {
+    constructor(){
+        this.baseUrl = 
+        'http://localhost:3000/api/v1/user'
+    }
+
+    // getUser(){
+    //     return fetch(this.baseUrl).then(res => res.json()
+    //     )
+    // }
+
+    
+}
+

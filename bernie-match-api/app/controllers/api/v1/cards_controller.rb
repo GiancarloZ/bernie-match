@@ -37,9 +37,5 @@ class Api::V1::CardsController < ApplicationController
         def card_params
             params.require(:card).permit(:state)
         end
-
-        def user_params
-            params.require(:user).permit(:name)
-        end
-
+        
 end

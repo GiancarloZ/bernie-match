@@ -13,11 +13,6 @@ class Cards{
         this.newUserForm.addEventListener('submit', this.createUser.bind(this))
     }
 
-    createUser(u){
-        u.preventDefault()
-        const value = this.newUserName.value
-    }
-
     fetchAndLoadCards(){
         this.adapter
         .getCards()
@@ -33,5 +28,14 @@ class Cards{
     render(){
         const cardsContainer = document.getElementById("cards-container")
         cardsContainer.innerHTML = this.cards.map(card => `<li>${card.state}</li>`).join("")
+    }
+
+    createUser(u){
+        u.preventDefault()
+        const value = this.newUserName.value
+
+        this.adapter.createUser(value).then(user => {
+            this.users.push(new User(user))
+        })
     }
 }
