@@ -1,7 +1,9 @@
 class CreateCards < ActiveRecord::Migration[6.0]
   def change
     create_table :cards do |t|
-      t.boolean :state, default: false
+      t.string :name
+      t.string :front
+      t.string :back
       t.timestamps
     end
   end

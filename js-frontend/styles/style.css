@@ -39,7 +39,7 @@ input{
     background: #060AB2;
   }
   
-  .cards-container {
+  #cards-container {
     width: 640px;
     height: 640px;
     margin: auto;

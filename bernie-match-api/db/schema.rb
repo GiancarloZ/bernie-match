@@ -13,7 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_02_18_162230) do
 
   create_table "cards", force: :cascade do |t|
-    t.boolean "state", default: false
+    t.string "name"
+    t.string "front"
+    t.string "back"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
