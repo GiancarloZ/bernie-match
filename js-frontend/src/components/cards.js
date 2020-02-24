@@ -39,60 +39,58 @@ class Cards {
         let gameGrid = this.cards.concat(this.cards)
         gameGrid.sort(() => 0.5 - Math.random())
         gameGrid.forEach(item => {
+
             const card = document.createElement('div')
             card.classList.add('card')
             card.dataset.framework = item.name
+            
+
             const image1 = document.createElement('img')
             image1.classList.add('front-face')
             image1.src = item.front 
             image1.alt = item.name
+  
             const image2 = document.createElement('img')
             image2.classList.add('back-face')
             image2.src = item.back
             image2.alt = "back"
+           
             card.append(image1, image2)
-            console.log(card)
             game.appendChild(card)
         })
-
+        
         let firstCard = ''
         let secondCard = ''
         let count = 0;
-        let cards = document.querySelector(".card");
+        // let cards = document.querySelector(".card");
         let grid = game.addEventListener('click', function(event) {
-            // The event target is our clicked item
             let clicked = event.target
+            let previousTarget = null;
+          
             console.log(clicked)
+            console.log(clicked.classList.value)
             // Do not allow the grid section itself to be selected; only select divs inside the grid
-            if (clicked.nodeName === 'back-card') {
-              return
+            if (clicked.nodeName === 'DIV' || previousTarget === clicked || clicked.classList.value === "front-face") {
+                return 
             }
 
             if (count < 2) {
                 count++
+                
                 if (count === 1) {
-                  // Assign first guess
                   firstCard = clicked.parentNode
                   clicked.parentNode.classList.add('flip')
-                  console.log(firstCard)
-                  console.log(clicked)
+                  previousTarget = clicked;
                 } else {
-                  // Assign second guess
                   secondCard = clicked.parentNode
                   clicked.parentNode.classList.add('flip')
-                  console.log(secondCard)
-                  console.log(clicked)
                 }
-                // If both guesses are not empty...
                 if (firstCard !== '' && secondCard !== '') {
-                  // and the first guess matches the second match...
-                    // if (firstCard === secondCard) {
-                    // run the match function
                     console.log(firstCard)
                     console.log(secondCard)
                     checkForMatch();
-                    // }
                 }
+               
             }
 
         })
@@ -121,7 +119,7 @@ class Cards {
             secondCard.classList.remove('flip');
     
             resetBoard();
-            }, 1500);
+            }, 1000);
         }
     
         function resetBoard() {
@@ -159,7 +157,7 @@ class Cards {
             } 
         }, 1000);
     }
-    
+
     createUser(u){
         u.preventDefault()
         const value = this.newUserName.value
