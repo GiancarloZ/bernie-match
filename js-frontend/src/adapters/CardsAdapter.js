@@ -9,18 +9,18 @@ class CardsAdapter{
         )
     }
 
-    createUser(name){
-        const user = {
-            body: name
-        }
-        return fetch(this.baseUrl, {
-            method: 'POST',
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify({ user }),
-        }).then(res => res.json())
-    }
+    // createUser(name){
+    //     const user = {
+    //         body: name
+    //     }
+    //     return fetch(this.baseUrl, {
+    //         method: 'POST',
+    //         headers: {
+    //             "content-type": "application/json",
+    //         },
+    //         body: JSON.stringify({ user }),
+    //     }).then(res => res.json())
+    // }
 
 }
 

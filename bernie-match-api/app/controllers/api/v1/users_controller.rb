@@ -1,14 +1,19 @@
 class Api::V1::UsersController < ApplicationController
+    def index
+        @user = User.all
+    end
+   
     def new
         @user = User.new
 
         render json: @user, status: 200
     end
+ 
 
     def show
-        # @card = Card.find(params[:id])
+        @user = User.find(params[:id])
 
-        # render json: @card, status: 200 
+        render json: @user, status: 200 
     end
 
     def create

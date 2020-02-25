@@ -4,7 +4,7 @@ class Cards {
         this.adapter = new CardsAdapter()
         this.initBindingsAndEventListeners()
         this.fetchAndLoadCards()
-        this.shuffle()
+        // this.shuffle()
     }
 
     initBindingsAndEventListeners(){
@@ -16,11 +16,20 @@ class Cards {
         const game = document.getElementById('cards-container')
         const start = document.getElementById("start-game")
         
-        this.newUserForm.addEventListener('submit', this.createUser.bind(this))
+        // this.newUserForm.addEventListener('submit', this.createUser.bind(this))
         // cards.forEach(card => card.addEventListener('click', this.flipCard.bind(event)))
         start.addEventListener('click', this.startGame);
         // game.addEventListener('click', this.flipCard);
     }
+    
+    // createUser(u){
+    //     u.preventDefault()
+    //     const value = this.newUserName.value
+
+    //     this.usersAdapter.createUser(value).then(user => {
+    //         this.users.push(new User(user))
+    //     })
+    // }
 
     fetchAndLoadCards(){
         this.adapter
@@ -37,7 +46,7 @@ class Cards {
         const game = document.getElementById('cards-container')
         console.log("rendered block")
         let gameGrid = this.cards.concat(this.cards)
-        gameGrid.sort(() => 0.5 - Math.random())
+        shuffle(gameGrid)
         gameGrid.forEach(item => {
 
             const card = document.createElement('div')
@@ -128,44 +137,49 @@ class Cards {
             count = 0
         }
         
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+          
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+          
+              // Pick a remaining element...
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+          
+              // And swap it with the current element.
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+            }
+          
+            return array;
+          }
     }
         
-    shuffle() {
-        this.cards.forEach(card => {
-        let ramdomPos = Math.floor(Math.random() * 16);
-        card.style.order = ramdomPos;
-        })
-    }
+   
 
-    startGame() {
-        console.log("clicked")
-        let timer = 59;
-        const display = document.querySelector('#time');
-        let defaultDisplay = display.textContent = "00:00";
-        let btn = document.getElementById("start-game");
-        var starter = setInterval(function () {
-            let seconds = timer;
-            display.textContent = "00:" + seconds;
-            --timer
+    // startGame() {
+    //     console.log("clicked")
+    //     let timer = 59;
+    //     const display = document.querySelector('#time');
+    //     let defaultDisplay = display.textContent = "00:00";
+    //     let btn = document.getElementById("start-game");
+    //     var starter = setInterval(function () {
+    //         let seconds = timer;
+    //         display.textContent = "00:" + seconds;
+    //         --timer
             
-            btn.disabled = true
-            if (timer === -1) {
-                console.log("0")
-                clearInterval(starter);
-                display.textContent = defaultDisplay + " Time's up. GAME OVER!"
-                btn.disabled = false;
-            } 
-        }, 1000);
-    }
+    //         btn.disabled = true
+    //         if (timer === -1) {
+    //             console.log("0")
+    //             clearInterval(starter);
+    //             display.textContent = defaultDisplay + " Time's up. GAME OVER!"
+    //             btn.disabled = false;
+    //         } 
+    //     }, 1000);
+    // }
 
-    createUser(u){
-        u.preventDefault()
-        const value = this.newUserName.value
-
-        this.adapter.createUser(value).then(user => {
-            this.users.push(new User(user))
-        })
-    }
    
     // flipCard() { 
     //     // let hasFlippedCard = false;
