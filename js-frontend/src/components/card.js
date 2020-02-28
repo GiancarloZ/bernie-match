@@ -1,6 +1,7 @@
 class Card {
     constructor(cardJSON) {
         this.id = cardJSON.id
-        this.state = cardJSON.state
+        this.front = cardJSON.front
+        this.back = cardJson.back
     }
 }

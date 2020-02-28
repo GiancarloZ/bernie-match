@@ -15,20 +15,28 @@ class Users {
 
     createUser(e){
         e.preventDefault()
-       
         const value = this.newUserName.value
-        console.log(value)
+        // console.log(value)
+        // this.userAnswer = document.getElementById("answer") 
         this.adapter.createUser(value).then(user => {
             console.log(user)
-            this.users.push(new User(user))
+        //     this.users.push(user)
+        //     debugger
+        //     this.userAnswer.innerText = `Welcome, ${user.name}!`
+        //     // this.userAnswer.innerText = `Welcome, ${user.name}!`
+        //     Cards.render()
         })
+
+        
     }
    
     fetchAndLoadUser(){
         this.adapter
         .getUser()
-        .then(users => {this.users.push(user)
-            console.log(this.user)
+        .then(users => {
+            users.forEach(user => this.users.push(new User(user)))
         })
     }
+
+   
 }
