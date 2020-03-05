@@ -22,7 +22,12 @@ class Cards {
     }
 
     render(){
+        const time = document.getElementById('time')
         const game = document.getElementById('cards-container')
+        // const cards = game.children
+        const flippedCards = document.getElementsByClassName("card flip")
+       
+
         let gameGrid = this.cards.concat(this.cards)
         shuffle(gameGrid)
         gameGrid.forEach(item => {
@@ -51,12 +56,13 @@ class Cards {
         let count = 0;
      
         let grid = game.addEventListener('click', function(event) {
-            const time = document.getElementById('time')
-            const cards = game.children
+            // checkTimeIsUp();
+            // checkGameWon();
             let clicked = event.target
             let previousTarget = null;
             // Do not allow the grid section itself to be selected; only select divs inside the grid
-            if (clicked.nodeName === 'DIV' || previousTarget === clicked || clicked.classList.value === "front-face") {
+
+            if (clicked.nodeName === 'DIV' || previousTarget === clicked || clicked.classList.value === "front-face" || time.textContent === "00:00 Time's up. GAME OVER!") {
                 return 
             }
 
@@ -80,15 +86,13 @@ class Cards {
         })
 
         function checkForMatch() {
-            console.log("Checking before cards")
             let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-            console.log("Checking after cards")
-            isMatch ? disableCards() : unflipCards();
+            isMatch ? disableCards(firstCard, secondCard) : unflipCards();
         }
     
-        function disableCards() {
-            firstCard.removeEventListener('click', grid);
-            secondCard.removeEventListener('click', grid);
+        function disableCards(card) {
+            card.removeEventListener('click', grid);
+            // secondCard.removeEventListener('click', grid);
     
             resetBoard();
         }
@@ -126,15 +130,35 @@ class Cards {
             return array;
         }
 
-        function timesUp(){
+        // function timesUp(){
             
-            if (time.textContent === "00:00 Time's up. GAME OVER!"){
-                for (let i = 0; i < cards.length; i++) {
-                    cards[i].removeEventListener('click', grid)
-                }
-            }
+        //     if (time.textContent === "00:00 Time's up. GAME OVER!"){
+        //         for (let i = 0; i < cards.length; i++) {
+        //             cards[i].removeEventListener('click', grid)
+        //         }
+        //     }
 
-        }
+        // }
+
+        // function gameWon(){
+        //     // let cards = game.children;
+        //     // const allEqual = arr => arr.every( v => v.classList.value === 'card flip')
+        //     // if (allEqual(cards)){
+        //     //     cards.forEach(card => card.removeEventListener('click', grid))
+        //     // }
+        //     if (flippedCards.length === 16){
+        //         display.textContent = "Congratulations! You've matched all the Bernie's!!"
+        //     }
+
+        // }
+
+        // function isItOver(){
+
+        //     if (timesUp() === true || gameWon() === true){
+        //         return true
+        //     }
+
+        // }
 
     }
 
