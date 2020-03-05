@@ -39,6 +39,13 @@ input{
     background: #006500;
   }
   
+  .container {
+    height: 100vh;
+    display: auto;
+    text-align: center;
+
+  }
+
   #cards-container {
     width: 640px;
     height: 640px;
