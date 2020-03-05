@@ -4,6 +4,7 @@ class Users {
         this.users = []
         this.adapter = new UsersAdapter()
         this.initBindingsAndEventListeners()
+        this.fetchAndLoadUsers()
     }
 
     initBindingsAndEventListeners(){
@@ -18,29 +19,29 @@ class Users {
         // console.log(value)
         
         this.adapter.createUser(value).then(user => {
+
             console.log(user)
-        //     this.users.push(user)
-        //     debugger
-        //     // this.userAnswer.innerText = `Welcome, ${user.name}!`
-        //     new Cards.render()
+            this.newUserName.value = ""
+            debugger
+            this.users.push((user))
             this.render()
         })
 
         
     }
    
-    fetchAndLoadUser(){
+    fetchAndLoadUsers(){
         this.adapter
-        .getUser()
+        .getUsers()
         .then(users => {
-            users.forEach(user => this.users.push(new User(user)))
+            users.forEach(user => this.users.push(user))
         })
     }
 
     render(){
         this.userAnswer = document.getElementById("answer") 
-        this.userAnswer.innerText = `Welcome, ${this.name}!`
-        
+        this.userAnswer.textContent = `Welcome, ${this.name}! Press Start Game to begin.`
+        this.games = new Games()
     }
    
 }
