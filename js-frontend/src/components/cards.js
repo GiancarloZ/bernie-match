@@ -25,14 +25,16 @@ class Cards {
         const time = document.getElementById('time')
         const game = document.getElementById('cards-container')
         // const cards = game.children
-        const flippedCards = document.getElementsByClassName("card flip")
-       
-
+        // const flippedCards = document.getElementsByClassName("card flip")
+        // const cards = document.getElementsByID("card")
+        // game.removeChild(cards)
         let gameGrid = this.cards.concat(this.cards)
         shuffle(gameGrid)
+       
         gameGrid.forEach(item => {
 
             const card = document.createElement('div')
+            card.id = "card"
             card.classList.add('card')
             card.dataset.framework = item.name
             

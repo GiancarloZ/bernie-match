@@ -19,7 +19,10 @@ class Games {
         const display = document.querySelector('#time');
         const btn = document.getElementById("start-game");
         const game = document.getElementById("cards-container")
-
+        const cards = document.getElementById("card")
+        if (game.children){
+            game.innerHTML = ""
+        }
         let timer = 59;
         let defaultDisplay = display.textContent = "00:00";
         
