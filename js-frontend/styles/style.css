@@ -38,12 +38,19 @@ input{
     display: flex;
     background: #006500;
   }
-  
+
+  h1 {
+    text-align: center;
+  }
+
   .container {
     height: 100vh;
     display: auto;
-    text-align: center;
 
+  }
+
+  #new-game-container {
+    text-align: center;
   }
 
   #cards-container {
