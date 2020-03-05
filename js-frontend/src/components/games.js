@@ -32,9 +32,8 @@ class Games {
            
             btn.disabled = true
             
-            if (timer === -1) {
+            if (timer === 57) {
 
-                console.log("0")
                 clearInterval(starter);
                 display.textContent = defaultDisplay + " Time's up. GAME OVER!"
                 btn.disabled = false;
