@@ -19,6 +19,7 @@ class Games {
         const display = document.querySelector('#time');
         const btn = document.getElementById("start-game");
         const game = document.getElementById("cards-container")
+        game.classList = ""
         const cards = document.getElementById("card")
         if (game.children){
             game.innerHTML = ""
@@ -40,6 +41,7 @@ class Games {
                 clearInterval(starter);
                 display.textContent = defaultDisplay + " Time's up. GAME OVER!"
                 btn.disabled = false;
+                game.classList.add("done")
                 
             } else if (flippedCards.length === 16){
                 clearInterval(starter);

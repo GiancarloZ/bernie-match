@@ -48,6 +48,10 @@ input{
     perspective: 1000px;
   }
   
+  .done {
+    border-style: solid;
+  }
+
   .card {
     width: calc(25% - 10px);
     height: calc(33.333% - 10px);
