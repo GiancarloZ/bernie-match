@@ -19,7 +19,7 @@ class UsersAdapter {
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify({ user }),
+            body: JSON.stringify({ user })
         }).then(res => res.json())
     }
 }

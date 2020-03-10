@@ -19,11 +19,11 @@ class Users {
         // console.log(value)
         
         this.adapter.createUser(value).then(user => {
-
+           
             console.log(user)
+        
             this.newUserName.value = ""
-            debugger
-            this.users.push((user))
+            this.users.push(new User(user))
             this.render()
         })
 
@@ -34,14 +34,16 @@ class Users {
         this.adapter
         .getUsers()
         .then(users => {
-            users.forEach(user => this.users.push(user))
+            users.forEach(user => this.users.push(new User(user)))
         })
     }
 
     render(){
-        this.userAnswer = document.getElementById("answer") 
-        this.userAnswer.textContent = `Welcome, ${this.name}! Press Start Game to begin.`
+        this.userAnswer = document.querySelector("h2") 
+        this.userAnswer.innerHTML = `Welcome, ${this.users.slice(-1)[0].name}! Press Start Game to begin.`
         this.games = new Games()
     }
+
+    
    
 }

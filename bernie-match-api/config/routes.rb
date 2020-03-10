@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :cards
       resources :users
+      resources :games
     end
   end
   

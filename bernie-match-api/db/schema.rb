@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_211123) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
