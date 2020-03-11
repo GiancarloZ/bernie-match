@@ -69,6 +69,8 @@ class Games {
             this.updateGame()
         }
 
+        
+        var _this = this
         var starter = setInterval(function () {
             
             const flippedCards = document.getElementsByClassName("card flip")
@@ -81,7 +83,7 @@ class Games {
             console.log(starter)
             btn.disabled = true
             
-            if (timer === 57) {
+            if (timer === -1) {
                 this.counter = 1;
                 clearInterval(starter);
                 const result = document.createElement("h3")
@@ -90,7 +92,7 @@ class Games {
                 btn.disabled = false;
                 game.classList.add("done")
                 console.log(this.counter)
-                this.updateGame()
+                _this.updateGame()
 
             } else if (flippedCards.length === 16){
 
@@ -100,11 +102,11 @@ class Games {
                 display.append(result)
                 btn.disabled = false;
                 game.classList.add("done")
-                
+                _this.updateGame()
             } 
             
         }, 1000);
-    }
+        }
 
     updateHighScore(){
         if (this.fastest.children){
