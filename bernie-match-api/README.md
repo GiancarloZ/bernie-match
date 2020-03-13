@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Bernie Match Game!
 
-Things you may want to cover:
+Getting Started
 
-* Ruby version
+    git clone git@github.com:GiancarloZ/bernie-match.git
 
-* System dependencies
+    rails db:migrate
 
-* Configuration
+    rails db:seed
 
-* Database creation
 
-* Database initialization
+Make sure to run two servers (one for rails api, one for frontend), and enjoy the game!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
