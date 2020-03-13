@@ -13,7 +13,7 @@ class GamesAdapter{
   
     startGame(value){
         const game = value
-
+        console.log(game)
         return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
@@ -27,7 +27,8 @@ class GamesAdapter{
         const game = value
         console.log(game)
         return fetch(this.baseUrl, {
-            method: 'POST',
+            method: 'PUT',
+            mode: "cors",
             headers: {
                 "content-type": "application/json",
             },
